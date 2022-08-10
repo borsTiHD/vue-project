@@ -18,9 +18,9 @@ import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 
-export const PrimeVuePlugin ={
+export const PrimeVuePlugin = {
     install(app) {
-        app.use(PrimeVue, {ripple: true})
+        app.use(PrimeVue, { ripple: true })
         app.component('Menubar', Menubar)
         app.component('Card', Card)
         app.component('Dialog', Dialog)
