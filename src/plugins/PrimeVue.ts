@@ -4,7 +4,8 @@ import 'primevue/resources/primevue.min.css' // Prime core css
 import 'primeicons/primeicons.css' // Prime icons
 
 // Themes
-import 'primevue/resources/themes/saga-blue/theme.css' // Prime theme
+// import 'primevue/resources/themes/saga-blue/theme.css' // Prime theme
+import 'primevue/resources/themes/lara-light-blue/theme.css'
 // import 'primevue/resources/themes/vela-blue/theme.css' // Prime theme
 // import 'primevue/resources/themes/tailwind-light/theme.css' // Tailwind theme
 // import 'primevue/resources/themes/bootstrap4-dark-blue/theme.css' // Bootstrap theme
