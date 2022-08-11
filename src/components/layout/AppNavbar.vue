@@ -54,9 +54,7 @@ const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
 
 // Darkmode Toggle
-const updateDarkmode = () => {
-    darkModeStore.setDarkMode(!isDarkMode.value)
-}
+const updateDarkmode = () => { darkModeStore.setDarkMode(!isDarkMode.value) }
 </script>
 
 <style scoped>
