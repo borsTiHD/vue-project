@@ -15,6 +15,7 @@ import 'primevue/resources/themes/lara-light-blue/theme.css'
 // Components
 import Tooltip from 'primevue/tooltip'
 import Menubar from 'primevue/menubar'
+import Sidebar from 'primevue/sidebar'
 import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
@@ -26,6 +27,7 @@ export const PrimeVuePlugin = {
         app.use(PrimeVue, { ripple: true })
         app.directive('tooltip', Tooltip)
         app.component('Menubar', Menubar)
+        app.component('Sidebar', Sidebar)
         app.component('Card', Card)
         app.component('Dialog', Dialog)
         app.component('Button', Button)
