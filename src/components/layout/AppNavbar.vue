@@ -21,8 +21,8 @@
             </RouterLink>
         </template>
         <template #end>
-            <div class="flex-col">
-                <span>Dark: {{ isDarkMode }}</span>
+            <div class="flex items-center" v-tooltip.bottom="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
+                <i class="pi mr-2" :class="isDarkMode ? 'pi-moon' : 'pi-sun'"></i>
                 <InputSwitch v-model="isDarkMode" @change="updateDarkmode" />
             </div>
         </template>
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useDarkModeStore } from '../../stores/darkmode'
 const items = ref([
@@ -47,11 +47,6 @@ const items = ref([
 // Store
 const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
-
-// Darkmode Watcher
-watch(isDarkMode, () => {
-    document.body.classList.toggle('dark', darkModeStore.isDarkMode)
-})
 
 // Darkmode Toggle
 const updateDarkmode = () => {

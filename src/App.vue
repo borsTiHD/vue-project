@@ -11,8 +11,27 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, computed, watch } from 'vue'
 import { RouterView } from 'vue-router'
 import AppNavbar from './components/layout/AppNavbar.vue'
+import { useDarkModeStore } from './stores/darkmode'
+
+// Store
+const darkModeStore = useDarkModeStore()
+const isDarkMode = computed(() => darkModeStore.isDarkMode)
+
+// Darkmode Watcher
+watch(isDarkMode, () => {
+    document.body.classList.toggle('dark', darkModeStore.isDarkMode)
+})
+
+// Checks Darkmode on startup
+onMounted(() => {
+    // Check if darkmode is enabled by os or localstorage
+    const mode = (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? true : false
+    document.body.classList.toggle('dark', mode)
+    darkModeStore.setDarkMode(mode)
+})
 </script>
 
 <style>

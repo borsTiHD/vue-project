@@ -13,6 +13,7 @@ import 'primevue/resources/themes/lara-light-blue/theme.css'
 // import 'primevue/resources/themes/mdc-dark-indigo/theme.css'
 
 // Components
+import Tooltip from 'primevue/tooltip'
 import Menubar from 'primevue/menubar'
 import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
@@ -23,6 +24,7 @@ import InputSwitch from 'primevue/inputswitch'
 export const PrimeVuePlugin = {
     install(app) {
         app.use(PrimeVue, { ripple: true })
+        app.directive('tooltip', Tooltip)
         app.component('Menubar', Menubar)
         app.component('Card', Card)
         app.component('Dialog', Dialog)

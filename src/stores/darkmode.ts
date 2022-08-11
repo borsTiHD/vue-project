@@ -8,6 +8,7 @@ export const useDarkModeStore = defineStore({
     actions: {
         setDarkMode(value: boolean) {
             this.darkMode = value
+            localStorage.theme = value ? 'dark' : 'light'
         }
     },
     getters: {
