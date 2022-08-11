@@ -10,12 +10,17 @@
             <RouterLink :to="item.to" custom v-slot="{ href, navigate, isActive, isExactActive }">
                 <a
                     :href="href"
+                    :class="[
+                        'mx-1 p-menuitem-link bg-zinc-100 dark:bg-zinc-700 text-black/60 dark:text-white/60', // default
+                        'hover:bg-zinc-200 hover:text-primary/80', // hover - hover:text-black/80
+                        'dark:hover:bg-zinc-400 dark:hover:text-white', // hover dark
+                        {
+                            'active-link bg-slate-200 text-primary font-bold': isActive, // active - text-black/60
+                            'active-link dark:bg-zinc-600 dark:text-white': isActive, // active dark
+                            'active-link-exact': isExactActive // active-exact
+                        }]"
                     @click="navigate"
-                    class="p-menuitem-link text-black/60 dark:text-white/60 hover:bg-zinc-500 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-black"
-                    :class="[{
-                        'active-link bg-zinc-600 text-white/100 font-bold': isActive,
-                        'active-link-exact': isExactActive
-                    }]">
+                >
                     {{ item.label }}
                 </a>
             </RouterLink>

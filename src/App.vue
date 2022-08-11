@@ -1,5 +1,5 @@
 <template>
-    <div class="app-container">
+    <div class="app-container text-slate-500 dark:text-slate-400">
         <!-- Header -->
         <AppNavbar />
 
@@ -21,15 +21,13 @@ const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
 
 // Darkmode Watcher
-watch(isDarkMode, () => {
-    document.body.classList.toggle('dark', darkModeStore.isDarkMode)
-})
+watch(isDarkMode, () => { document.documentElement.classList.toggle('dark', darkModeStore.isDarkMode) })
 
 // Checks Darkmode on startup
 onMounted(() => {
     // Check if darkmode is enabled by os or localstorage
     const mode = (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? true : false
-    document.body.classList.toggle('dark', mode)
+    document.documentElement.classList.toggle('dark', mode)
     darkModeStore.setDarkMode(mode)
 })
 </script>
