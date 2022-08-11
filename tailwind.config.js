@@ -5,6 +5,8 @@ module.exports = {
         './index.html',
         './src/**/*.{vue,js,ts,jsx,tsx}'
     ],
+    important: true,
+    darkMode: 'class',
     theme: {},
     plugins: []
     // prefix: 'tw-'

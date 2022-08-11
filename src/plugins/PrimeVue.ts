@@ -18,6 +18,7 @@ import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
+import InputSwitch from 'primevue/inputswitch'
 
 export const PrimeVuePlugin = {
     install(app) {
@@ -27,5 +28,6 @@ export const PrimeVuePlugin = {
         app.component('Dialog', Dialog)
         app.component('Button', Button)
         app.component('InputText', InputText)
+        app.component('InputSwitch', InputSwitch)
     }
 }

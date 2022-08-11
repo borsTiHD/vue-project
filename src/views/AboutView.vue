@@ -15,7 +15,7 @@
             </template>
             <template #footer>
                 <div class="flex gap-2">
-                    <Button label="Open Dialog" @click="display = !display"/>
+                    <Button label="Open Dialog" class="bg-red-500 hover:bg-red-300 border-red-700" @click="display = !display"/>
                     <Button label="Open Dialog" class="p-button-primary" @click="display = !display"/>
                     <Button label="Open Dialog" class="p-button-secondary" @click="display = !display"/>
                 </div>
