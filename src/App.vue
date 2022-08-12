@@ -13,8 +13,8 @@
 <script setup lang="ts">
 import { onMounted, computed, watch } from 'vue'
 import { RouterView } from 'vue-router'
-import AppNavbar from './components/layout/AppNavbar.vue'
-import { useDarkModeStore } from './stores/darkmode'
+import AppNavbar from '@/components/layout/AppNavbar.vue'
+import { useDarkModeStore } from '@/stores/darkmode'
 
 // Store
 const darkModeStore = useDarkModeStore()

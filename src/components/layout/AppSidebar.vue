@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useDarkModeStore } from '../../stores/darkmode'
+import { useDarkModeStore } from '@/stores/darkmode'
 
 // Open sidebar
 const showSidebar = ref(false)

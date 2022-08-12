@@ -7,7 +7,7 @@
             </div>
         </template>
         <template #item="{ item }">
-            <RouterLink :to="item.to" custom v-slot="{ href, navigate, isActive, isExactActive }">
+            <RouterLink :to="item.to || '/'" custom v-slot="{ href, navigate, isActive, isExactActive }">
                 <a
                     :href="href"
                     :class="[
@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import AppSidebar from './AppSidebar.vue'
+import AppSidebar from '@/components/layout/AppSidebar.vue'
 const items = ref([
     {
         label:'Home',
