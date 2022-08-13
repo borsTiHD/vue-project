@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Button class="p-button-secondary p-button-rounded p-button-text" icon="pi pi-bars" v-tooltip.left="'Einstellungen'" @click="showSidebar = true"/>
+        <Button class="p-button-secondary p-button-rounded p-button-text" icon="pi pi-bars" v-tooltip="'Einstellungen'" @click="showSidebar = true"/>
         <Sidebar v-model:visible="showSidebar" position="right" class="bg-zinc-100 dark:bg-zinc-700 dark:text-white">
             <div class="grid justify-items-center">
                 <p class="text-xl font-semibold">Einstellungen</p>

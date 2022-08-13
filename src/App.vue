@@ -17,6 +17,7 @@
 import { onMounted, computed, watch } from 'vue'
 import { RouterView } from 'vue-router'
 import AppNavbar from '@/components/layout/AppNavbar.vue'
+import useEmitter from '@/composables/useEmitter'
 import { useDarkModeStore } from '@/stores/darkmode'
 
 // Store
@@ -33,6 +34,10 @@ onMounted(() => {
     document.documentElement.classList.toggle('dark', mode)
     darkModeStore.setDarkMode(mode)
 })
+
+// Reload emitter Test
+const emitter = useEmitter()
+emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
 </script>
 
 <style>
