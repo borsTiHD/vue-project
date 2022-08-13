@@ -19,10 +19,15 @@ import Sidebar from 'primevue/sidebar'
 import Card from 'primevue/card'
 import Divider from 'primevue/divider'
 import Dialog from 'primevue/dialog'
+import Knob from 'primevue/knob'
 import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
 import InputSwitch from 'primevue/inputswitch'
+
+// Toast service + component
+import ToastService from 'primevue/toastservice'
+import Toast from 'primevue/toast'
 
 export const PrimeVuePlugin = {
     install(app) {
@@ -33,9 +38,14 @@ export const PrimeVuePlugin = {
         app.component('Card', Card)
         app.component('Divider', Divider)
         app.component('Dialog', Dialog)
+        app.component('Knob', Knob)
         app.component('Button', Button)
         app.component('Dropdown', Dropdown)
         app.component('InputText', InputText)
         app.component('InputSwitch', InputSwitch)
+
+        // Toast service + component
+        app.use(ToastService)
+        app.component('Toast', Toast)
     }
 }

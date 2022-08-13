@@ -27,6 +27,7 @@
         </template>
         <template #end>
             <div class="flex items-center">
+                <AppCountdown />
                 <AppSidebar />
             </div>
         </template>
@@ -37,6 +38,7 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
+import AppCountdown from '@/components/layout/AppCountdown.vue'
 const items = ref([
     {
         label:'Home',

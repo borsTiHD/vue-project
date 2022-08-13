@@ -1,5 +1,8 @@
 <template>
     <div class="app-container text-slate-500 dark:text-slate-400">
+        <!-- Toast service -->
+        <Toast position="bottom-right" group="br" />
+
         <!-- Header -->
         <AppNavbar />
 
