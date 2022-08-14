@@ -17,10 +17,9 @@
 import { computed, watch } from 'vue'
 import { RouterView } from 'vue-router'
 import AppNavbar from '@/components/layout/AppNavbar.vue'
+import loadSettings from '@/composables/loadSettings'
 import useEmitter from '@/composables/useEmitter'
 import { useDarkModeStore } from '@/stores/darkmode'
-import { useTeamStore } from '@/stores/teams'
-import { useAutoReloadStore } from '@/stores/autoreload'
 
 // Darkmode
 const darkModeStore = useDarkModeStore()
@@ -31,25 +30,8 @@ watch(isDarkMode, () => { document.documentElement.classList.toggle('dark', dark
 const emitter = useEmitter()
 emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
 
-// Checks settings on startup
-const checkSettingsOnStartup = () => {
-    console.log('[App] -> Load Settings on Startup')
-    // Check if darkmode is enabled by os or localstorage
-    const darkmode = (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? true : false
-    document.documentElement.classList.toggle('dark', darkmode)
-    darkModeStore.setDarkMode(darkmode)
-
-    // Check selected team on startup
-    const teamStore = useTeamStore()
-    const selectedTeam = localStorage.selectedTeam || false // Default is set in the store
-    if (selectedTeam) { teamStore.setSelectedTeam(selectedTeam) }
-
-    // Checks autoreload from localstorage
-    const autoReloadStore = useAutoReloadStore()
-    const autoreload = localStorage.autoreload || false // Default is false
-    autoReloadStore.setAutoReload(autoreload === 'true' ? true : false)
-}
-checkSettingsOnStartup()
+// Load settings on startup
+loadSettings()
 </script>
 
 <style>
