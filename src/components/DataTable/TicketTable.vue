@@ -1,40 +1,39 @@
 <template>
-    <div>
-        <DataTable
-            :value="data"
-            v-model:filters="filters"
-            paginator
-            :rows="10"
-            dataKey="id"
-            rowHover
-            :loading="loading"
-            :rowsPerPageOptions="[10,25,50]"
-            paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-            currentPageReportTemplate="Zeigt {first} bis {last} von {totalRecords} Einträgen"
-            emptyMessage="No data to display"
-            responsiveLayout="scroll"
-            sortField="id" :sortOrder="-1"
-            removableSort
-            filterDisplay="menu"
-            contextMenu
-            v-model:contextMenuSelection="selectedItem"
-            @rowContextmenu="onRowContextMenu"
-            stateStorage="local" :stateKey="props.name"
-        >
-            <template #header>
-                <div class="flex justify-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()"/>
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
-                        <InputText v-model="filters['global'].value" placeholder="Suche" />
-                    </span>
-                </div>
-            </template>
-            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" sortable />
-        </DataTable>
+    <DataTable
+        :value="data"
+        v-model:filters="filters"
+        :rowClass="rowClass"
+        paginator
+        :rows="10"
+        dataKey="id"
+        rowHover
+        :loading="loading"
+        :rowsPerPageOptions="[10,25,50]"
+        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+        currentPageReportTemplate="Zeigt {first} bis {last} von {totalRecords} Einträgen"
+        emptyMessage="No data to display"
+        responsiveLayout="scroll"
+        sortField="id" :sortOrder="-1"
+        removableSort
+        filterDisplay="menu"
+        contextMenu
+        v-model:contextMenuSelection="selectedItem"
+        @rowContextmenu="onRowContextMenu"
+        stateStorage="local" :stateKey="props.name"
+    >
+        <template #header>
+            <div class="flex justify-between">
+                <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()"/>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search" />
+                    <InputText v-model="filters['global'].value" placeholder="Suche" />
+                </span>
+            </div>
+        </template>
+        <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" sortable :headerClass="tableClass" />
+    </DataTable>
 
-        <ContextMenu :model="menuModel" ref="cm" />
-    </div>
+    <ContextMenu :model="menuModel" ref="cm" />
 </template>
 
 <script setup lang="ts">
@@ -82,6 +81,21 @@ const filters = ref({
     'activity': { value: null, matchMode: FilterMatchMode.BETWEEN }
 })
 
+// Row Colorizer
+const rowClass = (rowData: any) => {
+    return 'bg-white dark:bg-zinc-600 dark:text-white'
+    // return rowData.status === 'qualified' ? 'bg-yellow-100 dark:bg-yellow-800 dark:text-white' : 'bg-green-100 dark:bg-green-800 dark:text-white'
+}
+
+// Table CSS Classes
+const tableClass = ['bg-zinc-100', 'dark:bg-zinc-700', 'dark:text-white']
+const styleTable = () => {
+    const tableHeader = document.getElementsByClassName('p-datatable-header')
+    Array.from(tableHeader).forEach((el) => { el.classList.add(...tableClass) })
+    const tablePaginator = document.getElementsByClassName('p-paginator')
+    Array.from(tablePaginator).forEach((el) => { el.classList.add(...tableClass) })
+}
+
 // Clear all filters
 const clearFilter = () => {
     filters.value.global.value = null
@@ -112,6 +126,7 @@ const fetchData = async() => {
 
 // Load data on startup
 onMounted(async() => {
+    styleTable() // Add CSS classes to the table
     data.value = await fetchData()
 })
 
