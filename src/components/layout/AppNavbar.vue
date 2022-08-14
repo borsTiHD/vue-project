@@ -47,6 +47,10 @@ const items = ref([
     {
         label:'About',
         to: '/about'
+    },
+    {
+        label:'Supervision',
+        to: '/supervision'
     }
 ])
 </script>
