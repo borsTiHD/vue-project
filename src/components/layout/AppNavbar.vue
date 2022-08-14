@@ -3,7 +3,7 @@
         <template #start>
             <div class="text-2xl font-bold flex items-center gap-2 mr-4">
                 <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="h-10">
-                APP
+                <span>APP</span>
             </div>
         </template>
         <template #item="{ item }">
@@ -26,7 +26,7 @@
             </RouterLink>
         </template>
         <template #end>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <AppCountdown />
                 <AppSidebar />
             </div>

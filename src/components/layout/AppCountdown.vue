@@ -1,14 +1,37 @@
 <template>
     <div>
-        <Knob v-if="running" v-model="value" :size="40" :max="60" readonly class="cursor-pointer" v-tooltip.bottom="'Stop Reloader'" @click="stopCountdown" />
-        <Button v-else label="Start Reloader" class="p-button-secondary p-button-text p-button-sm" @click="startCountdown" />
+        <Knob
+            v-if="running"
+            v-model="value"
+            :size="40"
+            :max="60"
+            readonly
+            class="cursor-pointer"
+            :textColor="isDarkMode ? 'white' : ''"
+            :valueColor="isDarkMode ? 'MediumTurquoise' : 'var(--primary-color, Black)'"
+            :rangeColor="isDarkMode ? 'SlateGray' : 'var(--surface-border, LightGray)'"
+            v-tooltip.bottom="'Stop Reloader'"
+            @click="stopCountdown"
+        />
+        <Button
+            v-else
+            label="Start Reloader"
+            class="p-button-secondary p-button-text p-button-sm"
+            v-tooltip.bottom="'Start Reload Timer'"
+            @click="startCountdown"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import useEmitter from '@/composables/useEmitter'
+import { useDarkModeStore } from '@/stores/darkmode'
+
+// Store
+const darkModeStore = useDarkModeStore()
+const isDarkMode = computed(() => darkModeStore.isDarkMode)
 
 const emitter = useEmitter() // Event Emitter
 const toast = useToast() // Toast Emitter
