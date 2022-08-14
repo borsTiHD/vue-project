@@ -8,6 +8,120 @@
                 <div class="flex-col">
                     <p>Main text</p>
                 </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
+                <div class="flex-col">
+                    <p>Main text</p>
+                </div>
             </template>
         </Card>
     </main>

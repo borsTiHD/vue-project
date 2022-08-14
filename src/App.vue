@@ -1,5 +1,5 @@
 <template>
-    <div class="app-container text-slate-500 dark:text-slate-400">
+    <div class="app-container text-slate-500 dark:text-slate-400 flex-col min-h-screen">
         <!-- Toast service -->
         <Toast position="bottom-right" group="br" />
 
@@ -10,6 +10,9 @@
         <main class="mx-auto md:p-8">
             <RouterView />
         </main>
+
+        <!-- Footer -->
+        <AppFooter />
     </div>
 </template>
 
@@ -17,6 +20,7 @@
 import { computed, watch } from 'vue'
 import { RouterView } from 'vue-router'
 import AppNavbar from '@/components/layout/AppNavbar.vue'
+import AppFooter from '@/components/layout/AppFooter.vue'
 import loadSettings from '@/composables/loadSettings'
 import useEmitter from '@/composables/useEmitter'
 import { useDarkModeStore } from '@/stores/darkmode'
