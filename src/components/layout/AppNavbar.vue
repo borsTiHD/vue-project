@@ -1,5 +1,5 @@
 <template>
-    <Menubar :model="items" class="bg-zinc-100 dark:bg-zinc-700 dark:text-white">
+    <Menubar :model="routes" class="bg-zinc-100 dark:bg-zinc-700 dark:text-white">
         <template #start>
             <div class="text-2xl font-bold flex items-center gap-2 mr-4">
                 <img alt="logo" src="https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png" class="h-10">
@@ -7,7 +7,7 @@
             </div>
         </template>
         <template #item="{ item }">
-            <RouterLink :to="item.path || '/'" custom v-slot="{ href, navigate, isActive, isExactActive }">
+            <RouterLink :to="item.path" custom v-slot="{ href, navigate, isActive, isExactActive }">
                 <a
                     :href="href"
                     :class="[
@@ -35,12 +35,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import routes from '@/router/routes'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
 import AppReload from '@/components/misc/AppReload.vue'
-const items = ref(routes)
 </script>
 
 <style scoped>
