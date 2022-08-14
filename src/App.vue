@@ -1,5 +1,5 @@
 <template>
-    <div class="app-container text-slate-500 dark:text-slate-400 flex-col min-h-screen">
+    <div class="app-container text-slate-500 dark:text-slate-400 flex flex-col min-h-screen">
         <!-- Toast service -->
         <Toast position="bottom-right" group="br" />
 
@@ -7,7 +7,7 @@
         <AppNavbar />
 
         <!-- Content -->
-        <main class="mx-auto md:p-8">
+        <main class="p-2 md:p-8">
             <RouterView />
         </main>
 
