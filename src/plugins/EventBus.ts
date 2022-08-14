@@ -1,4 +1,5 @@
 // @ts-check
+import type { App } from 'vue'
 
 /**
  * Replacement for the Vue 2-based EventBus.
@@ -97,6 +98,9 @@ class Bus {
     }
 }
 
-const EventBus = new Bus()
-
-export default EventBus
+export const EventBus = {
+    install(app: App) {
+        const EventBus = new Bus()
+        app.config.globalProperties.$emitter = EventBus
+    }
+}

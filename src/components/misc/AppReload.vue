@@ -67,7 +67,7 @@ const startCountdown = () => {
         value.value--
         if (value.value <= 0) {
             value.value = duration // Reset value - timer begins again
-            toast.add({ severity:'info', summary: 'Info Message', detail:'Reload Timer finished', group: 'br', life: 3000 })
+            toast.add({ severity:'info', summary: 'Info Message', detail:'Lade neue Daten', group: 'br', life: 3000 })
             emitter.$emit('reloadtimer', 'finished') // Emit event - listen like: emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
         }
     }, 1000)
