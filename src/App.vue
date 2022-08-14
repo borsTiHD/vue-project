@@ -7,9 +7,9 @@
         <AppNavbar />
 
         <!-- Content -->
-        <div class="container mx-auto md:p-8">
+        <main class="mx-auto md:p-8">
             <RouterView />
-        </div>
+        </main>
     </div>
 </template>
 

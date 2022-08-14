@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <div>
         <Dialog header="Header" v-model:visible="display" >
             <Button class="p-button-info p-button-sm" label="Close" @click="display = !display"/>
         </Dialog>
@@ -22,7 +22,7 @@
                 </div>
             </template>
         </Card>
-    </main>
+    </div>
 </template>
 
 <script setup lang="ts">
