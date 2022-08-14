@@ -81,21 +81,6 @@ const filters = ref({
     'activity': { value: null, matchMode: FilterMatchMode.BETWEEN }
 })
 
-// Row Colorizer
-const rowClass = (rowData: any) => {
-    return 'bg-white dark:bg-zinc-600 dark:text-white'
-    // return rowData.status === 'qualified' ? 'bg-yellow-100 dark:bg-yellow-800 dark:text-white' : 'bg-green-100 dark:bg-green-800 dark:text-white'
-}
-
-// Table CSS Classes
-const tableClass = ['bg-zinc-100', 'dark:bg-zinc-700', 'dark:text-white']
-const styleTable = () => {
-    const tableHeader = document.getElementsByClassName('p-datatable-header')
-    Array.from(tableHeader).forEach((el) => { el.classList.add(...tableClass) })
-    const tablePaginator = document.getElementsByClassName('p-paginator')
-    Array.from(tablePaginator).forEach((el) => { el.classList.add(...tableClass) })
-}
-
 // Clear all filters
 const clearFilter = () => {
     filters.value.global.value = null
@@ -114,6 +99,21 @@ const viewItem = (item: any) => {
 const deleteItem = (item: any) => {
     console.log('deleteItem', item._rawValue)
     toast.add({ severity: 'error', summary: 'Info Message', detail:'Item Deleted', group: 'br', life: 3000 })
+}
+
+// Row Colorizer
+const rowClass = (rowData: any) => {
+    return 'bg-white dark:bg-zinc-600 dark:text-white'
+    // return rowData.status === 'qualified' ? 'bg-yellow-100 dark:bg-yellow-800 dark:text-white' : 'bg-green-100 dark:bg-green-800 dark:text-white'
+}
+
+// Table CSS Classes
+const tableClass = ['bg-zinc-100', 'dark:bg-zinc-700', 'dark:border-zinc-600', 'dark:text-white']
+const styleTable = () => {
+    const tableHeader = document.getElementsByClassName('p-datatable-header')
+    Array.from(tableHeader).forEach((el) => { el.classList.add(...tableClass) })
+    const tablePaginator = document.getElementsByClassName('p-paginator')
+    Array.from(tablePaginator).forEach((el) => { el.classList.add(...tableClass) })
 }
 
 // Fetch data from the server
@@ -137,3 +137,19 @@ emitter.$on('reloadtimer', async() => {
     data.value = await fetchData()
 })
 </script>
+
+<style>
+.p-sortable-column-icon {
+    color: #000 !important;
+}
+.dark .p-sortable-column-icon {
+    color: #fff !important;
+}
+.p-paginator-page.p-paginator-element.p-link.p-highlight {
+    background-color: #fff !important;
+}
+.dark .p-paginator-page.p-paginator-element.p-link.p-highlight {
+    background-color: rgb(116, 116, 116) !important;
+    color: #fff !important;
+}
+</style>
