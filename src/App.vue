@@ -14,30 +14,40 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, computed, watch } from 'vue'
+import { computed, watch } from 'vue'
 import { RouterView } from 'vue-router'
 import AppNavbar from '@/components/layout/AppNavbar.vue'
 import useEmitter from '@/composables/useEmitter'
 import { useDarkModeStore } from '@/stores/darkmode'
+import { useAutoReloadStore } from '@/stores/autoreload'
 
-// Store
+// Darkmode
 const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
-
-// Darkmode Watcher
 watch(isDarkMode, () => { document.documentElement.classList.toggle('dark', darkModeStore.isDarkMode) })
-
-// Checks Darkmode on startup
-onMounted(() => {
-    // Check if darkmode is enabled by os or localstorage
-    const mode = (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? true : false
-    document.documentElement.classList.toggle('dark', mode)
-    darkModeStore.setDarkMode(mode)
-})
 
 // Reload emitter Test
 const emitter = useEmitter()
 emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
+
+// Checks settings on startup
+const checkSettingsOnStartup = () => {
+    console.log('[App] -> Load Settings on Startup')
+    // Check if darkmode is enabled by os or localstorage
+    const darkmode = (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? true : false
+    document.documentElement.classList.toggle('dark', darkmode)
+    darkModeStore.setDarkMode(darkmode)
+
+    // Checks autoreload from localstorage
+    const autoReloadStore = useAutoReloadStore()
+    if (localStorage.autoreload) {
+        autoReloadStore.setAutoReload(localStorage.autoreload === 'true' ? true : false)
+    } else {
+        // Set default autoreload
+        autoReloadStore.setAutoReload(true)
+    }
+}
+checkSettingsOnStartup()
 </script>
 
 <style>

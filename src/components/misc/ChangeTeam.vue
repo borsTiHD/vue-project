@@ -17,19 +17,3 @@ const changeTeam = (event: any) => {
     if (team) { teamStore.setSelectedTeam(team) }
 }
 </script>
-
-<style>
-/* Z-Index fixes */
-.p-sidebar {
-    z-index: 10000;
-}
-.p-sidebar-mask {
-    z-index: 9000;
-}
-.p-tooltip {
-    z-index: 10001;
-}
-.p-dropdown-panel {
-    z-index: 10001;
-}
-</style>

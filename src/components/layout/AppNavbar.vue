@@ -27,7 +27,7 @@
         </template>
         <template #end>
             <div class="flex items-center gap-2">
-                <AppCountdown />
+                <AppReload />
                 <AppSidebar />
             </div>
         </template>
@@ -39,7 +39,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import routes from '@/router/routes'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
-import AppCountdown from '@/components/layout/AppCountdown.vue'
+import AppReload from '@/components/layout/AppReload.vue'
 const items = ref(routes)
 </script>
 

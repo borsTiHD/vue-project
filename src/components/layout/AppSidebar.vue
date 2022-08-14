@@ -6,9 +6,13 @@
                 <p class="text-xl font-semibold">Einstellungen</p>
                 <Divider />
                 <ul class="flex-col space-y-4 list-none">
-                    <li class="flex items-center" v-tooltip.left="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
+                    <li class="flex items-center" v-tooltip.left="'Team Auswahl'">
                         <p class="">Team:</p>
                         <ChangeTeam />
+                    </li>
+                    <li class="flex items-center" v-tooltip.left="'Startet Reloader automatisch'">
+                        <p class="">Auto Reload:</p>
+                        <InputSwitch class="ml-2" v-model="isAutoReload" @change="updateAutoReload" />
                     </li>
                     <li class="flex items-center" v-tooltip.left="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
                         <p class="">Darkmode:</p>
@@ -24,17 +28,21 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useDarkModeStore } from '@/stores/darkmode'
+import { useAutoReloadStore } from '@/stores/autoreload'
 import ChangeTeam from '@/components/misc/ChangeTeam.vue'
 
 // Open sidebar
 const showSidebar = ref(false)
 
-// Store
+// DarkMode
 const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
-
-// Darkmode Toggle
 const updateDarkmode = () => { darkModeStore.setDarkMode(!isDarkMode.value) }
+
+// AutoReload
+const autoReloadStore = useAutoReloadStore()
+const isAutoReload = computed(() => autoReloadStore.isAutoReload)
+const updateAutoReload = () => { autoReloadStore.setAutoReload(!isAutoReload.value) }
 </script>
 
 <style>

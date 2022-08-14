@@ -24,15 +24,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useToast } from 'primevue/usetoast'
 import useEmitter from '@/composables/useEmitter'
 import { useDarkModeStore } from '@/stores/darkmode'
+import { useAutoReloadStore } from '@/stores/autoreload'
 
-// Store
+// Darkmode
 const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
 
+// AutoReload
+const autoReloadStore = useAutoReloadStore()
+const isAutoReload = computed(() => autoReloadStore.isAutoReload)
+watch(isAutoReload, (mode) => {
+    if (mode) {
+        startCountdown()
+    } else {
+        stopCountdown()
+    }
+})
+
+// AutoReload on startup if enabled
+onMounted(() => {
+    if (autoReloadStore.isAutoReload) { startCountdown() }
+})
+
+// Countdown values
 const emitter = useEmitter() // Event Emitter
 const toast = useToast() // Toast Emitter
 const value = ref(60) // Countdown Value
@@ -50,7 +68,7 @@ const startCountdown = () => {
         if (value.value <= 0) {
             value.value = duration // Reset value - timer begins again
             toast.add({ severity:'info', summary: 'Info Message', detail:'Reload Timer finished', group: 'br', life: 3000 })
-            emitter.$emit('reloadtimer', 'FINISHED') // Emit event - listen like: emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
+            emitter.$emit('reloadtimer', 'finished') // Emit event - listen like: emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
         }
     }, 1000)
 }
