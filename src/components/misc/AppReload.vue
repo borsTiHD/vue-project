@@ -4,7 +4,7 @@
             v-if="running"
             v-model="value"
             :size="40"
-            :max="60"
+            :max="duration"
             readonly
             class="cursor-pointer"
             :textColor="isDarkMode ? 'white' : ''"
@@ -51,12 +51,12 @@ onMounted(() => {
 })
 
 // Countdown values
+const duration = 120 // Countdown Duration and starting value
 const emitter = useEmitter() // Event Emitter
 const toast = useToast() // Toast Emitter
-const value = ref(60) // Countdown Value
+const value = ref(duration) // Countdown Value
 const running = ref(false) // Countdown Running
 let interval: ReturnType<typeof setInterval> // Countdown Interval
-const duration = 30 // Countdown Duration and starting value
 
 // Start Countdown
 const startCountdown = () => {
