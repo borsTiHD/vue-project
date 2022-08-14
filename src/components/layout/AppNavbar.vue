@@ -39,7 +39,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import routes from '@/router/routes'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
-import AppReload from '@/components/layout/AppReload.vue'
+import AppReload from '@/components/misc/AppReload.vue'
 const items = ref(routes)
 </script>
 
