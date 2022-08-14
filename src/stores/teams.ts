@@ -9,6 +9,7 @@ export const useTeamStore = defineStore({
     actions: {
         setSelectedTeam(value: string) {
             this.selectedTeam = value
+            localStorage.selectedTeam = value
         }
     },
     getters: {
