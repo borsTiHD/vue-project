@@ -24,6 +24,8 @@ import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
 import InputSwitch from 'primevue/inputswitch'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
 
 // Toast service + component
 import ToastService from 'primevue/toastservice'
@@ -43,6 +45,8 @@ export const PrimeVuePlugin = {
         app.component('Dropdown', Dropdown)
         app.component('InputText', InputText)
         app.component('InputSwitch', InputSwitch)
+        app.component('DataTable', DataTable)
+        app.component('Column', Column)
 
         // Toast service + component
         app.use(ToastService)
