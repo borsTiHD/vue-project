@@ -5,12 +5,12 @@
                 Supervision
             </template>
             <template #content>
-                <SupervisionDataTable />
+                <TicketTable name="dt-supervision" />
             </template>
         </Card>
     </main>
 </template>
 
 <script setup lang="ts">
-import SupervisionDataTable from '@/components/DataTable/SupervisionDataTable.vue'
+import TicketTable from '@/components/DataTable/TicketTable.vue'
 </script>

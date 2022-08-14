@@ -19,9 +19,10 @@
             contextMenu
             v-model:contextMenuSelection="selectedItem"
             @rowContextmenu="onRowContextMenu"
+            stateStorage="local" :stateKey="props.name"
         >
             <template #header>
-                <div class="flex justify-content-between">
+                <div class="flex justify-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" class="p-button-outlined" @click="clearFilter()"/>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search" />
@@ -37,11 +38,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { defineProps, ref, onMounted } from 'vue'
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import { useToast } from 'primevue/usetoast'
 import useEmitter from '@/composables/useEmitter'
 import useAxios from '@/composables/useAxios'
+
+const props = defineProps({
+    name: {
+        type: String,
+        default: 'primary'
+    }
+})
 
 const axios = useAxios()
 const toast = useToast()
