@@ -7,7 +7,7 @@
             </div>
         </template>
         <template #item="{ item }">
-            <RouterLink :to="item.to || '/'" custom v-slot="{ href, navigate, isActive, isExactActive }">
+            <RouterLink :to="item.path || '/'" custom v-slot="{ href, navigate, isActive, isExactActive }">
                 <a
                     :href="href"
                     :class="[
@@ -37,22 +37,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import routes from '@/router/routes'
 import AppSidebar from '@/components/layout/AppSidebar.vue'
 import AppCountdown from '@/components/layout/AppCountdown.vue'
-const items = ref([
-    {
-        label:'Home',
-        to: '/'
-    },
-    {
-        label:'About',
-        to: '/about'
-    },
-    {
-        label:'Supervision',
-        to: '/supervision'
-    }
-])
+const items = ref(routes)
 </script>
 
 <style scoped>
