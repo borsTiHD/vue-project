@@ -9,8 +9,8 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: HomeView,
-            meta: { title: 'Home' }
+            component: HomeView
+            // meta: { title: 'Home' } // Default title if not set
         },
         {
             path: '/about',
@@ -19,7 +19,7 @@ const router = createRouter({
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             component: () => import('../views/AboutView.vue'),
-            meta: { title: 'About' }
+            meta: { title: 'About' } // Set the page title
         }
     ]
 })
@@ -27,7 +27,8 @@ const router = createRouter({
 // Changing title after route change
 router.afterEach((to) => {
     const appStore = useAppStore()
-    const pageTitle = `${to.meta.title} - ${appStore.getTitle}`
+    let pageTitle // Page title, defaults to app name
+    if (to.meta.title) { pageTitle = `${to.meta.title} - ${appStore.getTitle}` }
     document.title = pageTitle || appStore.getTitle
 })
 
