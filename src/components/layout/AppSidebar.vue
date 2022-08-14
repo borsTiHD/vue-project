@@ -8,7 +8,7 @@
                 <ul class="flex-col space-y-4 list-none">
                     <li class="flex items-center" v-tooltip.left="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
                         <p class="">Team:</p>
-                        <Dropdown class="ml-2" v-model="team" :options="teams" @change="changeTeam" />
+                        <ChangeTeam />
                     </li>
                     <li class="flex items-center" v-tooltip.left="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
                         <p class="">Darkmode:</p>
@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useDarkModeStore } from '@/stores/darkmode'
+import ChangeTeam from '@/components/misc/ChangeTeam.vue'
 
 // Open sidebar
 const showSidebar = ref(false)
@@ -34,13 +35,6 @@ const isDarkMode = computed(() => darkModeStore.isDarkMode)
 
 // Darkmode Toggle
 const updateDarkmode = () => { darkModeStore.setDarkMode(!isDarkMode.value) }
-
-// Teams
-const teams = ['Team 1', 'Team 2', 'Team 3']
-const team = ref('Team 1')
-const changeTeam = (event: object) => {
-    console.log('Change Team:', event?.value)
-}
 </script>
 
 <style>
