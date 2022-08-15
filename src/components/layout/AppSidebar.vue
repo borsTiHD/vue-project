@@ -1,28 +1,26 @@
 <template>
-    <div>
-        <Button class="p-button-secondary p-button-rounded p-button-text" icon="pi pi-bars" v-tooltip="'Einstellungen'" @click="showSidebar = true"/>
-        <Sidebar v-model:visible="showSidebar" position="right" class="bg-zinc-100 dark:bg-zinc-700 dark:text-white">
-            <div class="grid justify-items-center">
-                <p class="text-xl font-semibold">Einstellungen</p>
-                <Divider />
-                <ul class="flex-col space-y-4 list-none">
-                    <li class="flex items-center" v-tooltip.left="'Team Auswahl'">
-                        <p class="">Team:</p>
-                        <ChangeTeam />
-                    </li>
-                    <li class="flex items-center" v-tooltip.left="'Startet Reloader automatisch'">
-                        <p class="">Auto Reload:</p>
-                        <InputSwitch class="ml-2" v-model="isAutoReload" @change="updateAutoReload" />
-                    </li>
-                    <li class="flex items-center" v-tooltip.left="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
-                        <p class="">Darkmode:</p>
-                        <InputSwitch class="mx-2" v-model="isDarkMode" @change="updateDarkmode" />
-                        <i class="pi" :class="isDarkMode ? 'pi-moon' : 'pi-sun'"></i>
-                    </li>
-                </ul>
-            </div>
-        </Sidebar>
-    </div>
+    <Button class="p-button-secondary p-button-rounded p-button-text" icon="pi pi-bars" v-tooltip="'Einstellungen'" @click="showSidebar = true"/>
+    <Sidebar v-model:visible="showSidebar" position="right" class="bg-zinc-100 dark:bg-zinc-700 dark:text-white">
+        <div class="grid justify-items-center">
+            <p class="text-xl font-semibold">Einstellungen</p>
+            <Divider />
+            <ul class="flex-col space-y-4 list-none">
+                <li class="flex items-center" v-tooltip.left="'Team Auswahl'">
+                    <p class="">Team:</p>
+                    <ChangeTeam />
+                </li>
+                <li class="flex items-center" v-tooltip.left="'Startet Reloader automatisch'">
+                    <p class="">Auto Reload:</p>
+                    <InputSwitch class="ml-2" v-model="isAutoReload" @change="updateAutoReload" />
+                </li>
+                <li class="flex items-center" v-tooltip.left="`Change to ${isDarkMode ? 'Light' : 'Dark'}`">
+                    <p class="">Darkmode:</p>
+                    <InputSwitch class="mx-2" v-model="isDarkMode" @change="updateDarkmode" />
+                    <i class="pi" :class="isDarkMode ? 'pi-moon' : 'pi-sun'"></i>
+                </li>
+            </ul>
+        </div>
+    </Sidebar>
 </template>
 
 <script setup lang="ts">

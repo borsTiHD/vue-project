@@ -46,7 +46,7 @@ import useAxios from '@/composables/useAxios'
 const props = defineProps({
     name: {
         type: String,
-        default: 'primary'
+        default: 'dt-default'
     }
 })
 
