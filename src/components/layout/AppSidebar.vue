@@ -3,7 +3,7 @@
     <Sidebar v-model:visible="showSidebar" position="right" class="bg-zinc-100 dark:bg-zinc-700 dark:text-white">
         <div class="grid justify-items-center">
             <p class="text-xl font-semibold">Einstellungen</p>
-            <Divider />
+            <Divider class="border-t" />
             <ul class="flex-col space-y-4 list-none">
                 <li class="flex items-center" v-tooltip.left="'Team Auswahl'">
                     <p class="">Team:</p>

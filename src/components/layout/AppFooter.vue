@@ -23,7 +23,7 @@
         </div>
 
         <!-- Copyright -->
-        <Divider />
+        <Divider class="border-t" />
         <section class="m-4 text-gray-600 dark:text-gray-300 flex justify-center gap-4">
             <span class="text-center">© {{ appName }}</span>
         </section>
