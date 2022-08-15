@@ -7,7 +7,7 @@ export default function loadTheme(theme?: string) {
     if (theme === undefined) {
         const darkModeStore = useDarkModeStore()
         const isDarkMode = darkModeStore.isDarkMode
-        themeLink = `themes/${isDarkMode ? 'lara-dark-blue' : 'lara-light-blue'}/theme.css`
+        themeLink = `themes/${isDarkMode ? 'mdc-dark-indigo' : 'mdc-light-indigo'}/theme.css`
     } else {
         themeLink = `themes/${theme}/theme.css`
     }
