@@ -16,7 +16,7 @@
         <Button
             v-else
             label="Start Reloader"
-            class="p-button-secondary p-button-text p-button-sm"
+            class="p-button-primary p-button-text p-button-sm"
             v-tooltip.bottom="'Start Reload Timer'"
             @click="startCountdown"
         />

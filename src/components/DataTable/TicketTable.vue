@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import { useToast } from 'primevue/usetoast'
 import useEmitter from '@/composables/useEmitter'
