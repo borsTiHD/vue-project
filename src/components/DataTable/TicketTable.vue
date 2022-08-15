@@ -103,7 +103,7 @@ const deleteItem = (item: any) => {
 
 // Row Colorizer
 const rowClass = (rowData: any) => {
-    return 'dark:bg-slate-600 dark:text-white'
+    return ''
     // return rowData.status === 'qualified' ? 'bg-yellow-100 dark:bg-yellow-800 dark:text-white' : 'bg-green-100 dark:bg-green-800 dark:text-white'
 }
 
