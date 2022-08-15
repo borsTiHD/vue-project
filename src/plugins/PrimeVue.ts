@@ -1,16 +1,14 @@
+import type { App } from 'vue'
+
 // Core + CSS
 import PrimeVue from 'primevue/config' // Core
 import 'primevue/resources/primevue.min.css' // Prime core css
 import 'primeicons/primeicons.css' // Prime icons
 
-// Themes
-// import 'primevue/resources/themes/saga-blue/theme.css' // Prime theme
-import 'primevue/resources/themes/lara-light-blue/theme.css'
-// import 'primevue/resources/themes/vela-blue/theme.css' // Prime theme
-// import 'primevue/resources/themes/tailwind-light/theme.css' // Tailwind theme
-// import 'primevue/resources/themes/bootstrap4-dark-blue/theme.css' // Bootstrap theme
-// import 'primevue/resources/themes/mdc-light-indigo/theme.css'
-// import 'primevue/resources/themes/mdc-dark-indigo/theme.css'
+// Themes are loaded through the "loadTheme" helper/composable
+// This will make sure the theme pay attention to the selected dark mode
+// import 'primevue/resources/themes/lara-light-blue/theme.css'
+// import 'primevue/resources/themes/lara-dark-blue/theme.css'
 
 // Components
 import Tooltip from 'primevue/tooltip'
@@ -33,7 +31,7 @@ import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
 
 export const PrimeVuePlugin = {
-    install(app) {
+    install(app: App) {
         app.use(PrimeVue, { ripple: true })
         app.directive('tooltip', Tooltip)
         app.component('Menubar', Menubar)

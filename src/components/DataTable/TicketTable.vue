@@ -30,7 +30,7 @@
                 </span>
             </div>
         </template>
-        <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" sortable :headerClass="tableClass" />
+        <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field" sortable />
     </DataTable>
 
     <ContextMenu :model="menuModel" ref="cm" />
@@ -103,17 +103,8 @@ const deleteItem = (item: any) => {
 
 // Row Colorizer
 const rowClass = (rowData: any) => {
-    return 'bg-white dark:bg-zinc-600 dark:text-white'
+    return 'dark:bg-slate-600 dark:text-white'
     // return rowData.status === 'qualified' ? 'bg-yellow-100 dark:bg-yellow-800 dark:text-white' : 'bg-green-100 dark:bg-green-800 dark:text-white'
-}
-
-// Table CSS Classes
-const tableClass = ['bg-zinc-100', 'dark:bg-zinc-700', 'dark:border-zinc-600', 'dark:text-white']
-const styleTable = () => {
-    const tableHeader = document.getElementsByClassName('p-datatable-header')
-    Array.from(tableHeader).forEach((el) => { el.classList.add(...tableClass) })
-    const tablePaginator = document.getElementsByClassName('p-paginator')
-    Array.from(tablePaginator).forEach((el) => { el.classList.add(...tableClass) })
 }
 
 // Fetch data from the server
@@ -126,7 +117,7 @@ const fetchData = async() => {
 
 // Load data on startup
 onMounted(async() => {
-    styleTable() // Add CSS classes to the table
+    // styleTable() // Add CSS classes to the table
     data.value = await fetchData()
 })
 
@@ -137,19 +128,3 @@ emitter.$on('reloadtimer', async() => {
     data.value = await fetchData()
 })
 </script>
-
-<style>
-.p-sortable-column-icon {
-    color: #000 !important;
-}
-.dark .p-sortable-column-icon {
-    color: #fff !important;
-}
-.p-paginator-page.p-paginator-element.p-link.p-highlight {
-    background-color: #fff !important;
-}
-.dark .p-paginator-page.p-paginator-element.p-link.p-highlight {
-    background-color: rgb(116, 116, 116) !important;
-    color: #fff !important;
-}
-</style>

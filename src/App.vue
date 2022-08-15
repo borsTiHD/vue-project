@@ -22,15 +22,16 @@ import { RouterView } from 'vue-router'
 import AppNavbar from '@/components/layout/AppNavbar.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import loadSettings from '@/composables/loadSettings'
+import loadTheme from '@/composables/loadTheme'
 import { useDarkModeStore } from '@/stores/darkmode'
 
 // Darkmode
 const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
-watch(isDarkMode, () => { document.documentElement.classList.toggle('dark', darkModeStore.isDarkMode) })
+watch(isDarkMode, () => { document.documentElement.classList.toggle('dark', isDarkMode.value) })
 
-// Load settings on startup
-loadSettings()
+loadSettings() // Load settings on startup
+loadTheme() // Load CSS theme on startup
 </script>
 
 <style>

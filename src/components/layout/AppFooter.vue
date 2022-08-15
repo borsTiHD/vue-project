@@ -41,6 +41,3 @@ const author = config.APP_AUTHOR
 const authorEmail = config.APP_AUTHOR_EMAIL
 const privacyNoticeLink = 'url'
 </script>
-
-<style scoped>
-</style>

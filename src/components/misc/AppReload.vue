@@ -79,6 +79,3 @@ const stopCountdown = () => {
     if (interval) { clearInterval(interval) }
 }
 </script>
-
-<style scoped>
-</style>

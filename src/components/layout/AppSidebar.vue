@@ -28,6 +28,7 @@ import { ref, computed } from 'vue'
 import { useDarkModeStore } from '@/stores/darkmode'
 import { useAutoReloadStore } from '@/stores/autoreload'
 import ChangeTeam from '@/components/misc/ChangeTeam.vue'
+import loadTheme from '@/composables/loadTheme'
 
 // Open sidebar
 const showSidebar = ref(false)
@@ -35,7 +36,10 @@ const showSidebar = ref(false)
 // DarkMode
 const darkModeStore = useDarkModeStore()
 const isDarkMode = computed(() => darkModeStore.isDarkMode)
-const updateDarkmode = () => { darkModeStore.setDarkMode(!isDarkMode.value) }
+const updateDarkmode = () => {
+    darkModeStore.setDarkMode(!isDarkMode.value)
+    loadTheme() // Load CSS theme
+}
 
 // AutoReload
 const autoReloadStore = useAutoReloadStore()
