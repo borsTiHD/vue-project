@@ -2,7 +2,7 @@
     <div>
         <Knob
             v-if="running"
-            v-model="value"
+            v-model="countdown"
             :size="40"
             :max="duration"
             readonly
@@ -54,19 +54,19 @@ onMounted(() => {
 const duration = 120 // Countdown Duration and starting value
 const emitter = useEmitter() // Event Emitter
 const toast = useToast() // Toast Emitter
-const value = ref(duration) // Countdown Value
+const countdown = ref(duration) // Countdown Value
 const running = ref(false) // Countdown Running
 let interval: ReturnType<typeof setInterval> // Countdown Interval
 
 // Start Countdown
 const startCountdown = () => {
-    value.value = duration
+    countdown.value = duration
     running.value = true
     if (interval) { clearInterval(interval) }
     interval = setInterval(() => {
-        value.value--
-        if (value.value <= 0) {
-            value.value = duration // Reset value - timer begins again
+        countdown.value--
+        if (countdown.value <= 0) {
+            countdown.value = duration // Reset value - timer begins again
             toast.add({ severity: 'info', summary: 'Info Message', detail:'Lade neue Daten', group: 'br', life: 3000 })
             emitter.$emit('reloadtimer', 'finished') // Emit event - listen like: emitter.$on('reloadtimer', (arg: string) => { console.log('Reloadtimer emitted:', arg) })
         }
